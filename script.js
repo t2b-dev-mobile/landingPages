@@ -12,8 +12,8 @@
 
   let index = 0;
   let cards = Array.from(track.children);
-  const cardsPerView = 3; // Show 3 cards at a time
-  const maxIndex = Math.max(0, cards.length - cardsPerView);
+  const cardsPerView = 2.25; // Show 2.25 cards at a time
+  const maxIndex = Math.max(0, Math.ceil(cards.length - cardsPerView));
 
   function getScrollAmount() {
     // Calculate based on one card width + gap

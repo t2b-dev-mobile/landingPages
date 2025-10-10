@@ -351,8 +351,8 @@ p.lead {
 }
 
 .card {
-  min-width: calc((100% - 48px) / 3);
-  max-width: calc((100% - 48px) / 3);
+  min-width: calc((100% - 30px) / 2.25);
+  max-width: calc((100% - 30px) / 2.25);
   flex-shrink: 0;
   background: var(--card);
   border: 2px solid var(--green-300);
@@ -494,46 +494,40 @@ p.lead {
 .car-btn {
   width: 48px;
   height: 48px;
-  border-radius: var(--r-xs);
-  background: #fff;
-  border: 1.5px solid var(--green-600);
+  border-radius: 8px;
+  background: var(--green-600);
+  border: 1px solid var(--green-600);
   display: grid;
   place-items: center;
   cursor: pointer;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   transition: all 0.2s ease;
 }
 
-.car-btn:hover {
-  background: var(--green-600);
+.car-btn:hover:not(:disabled) {
+  background: var(--green-700);
   border-color: var(--green-700);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-}
-
-.car-btn:hover img {
-  filter: brightness(0) invert(1);
-}
-
-.car-btn:disabled {
-  opacity: 0.3;
-  cursor: not-allowed;
-  border-color: #DDD;
-  background: #F9F9F9;
-}
-
-.car-btn:disabled:hover {
-  background: #F9F9F9;
-  border-color: #DDD;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-}
-
-.car-btn:disabled:hover img {
-  filter: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
 .car-btn img {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
+  transition: opacity 0.2s ease;
+}
+
+.car-btn:disabled {
+  opacity: 1;
+  cursor: not-allowed;
+  background: #fff;
+  border: 1px solid #E5E7EB;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.car-btn:disabled img {
+  filter: none;
+  opacity: 0.3;
 }
 
 /* ===========================
