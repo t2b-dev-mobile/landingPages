@@ -7,6 +7,7 @@
   --green-600: #12B76A;
   --green-500: #1FC97B;
   --green-300: #B8EAC7;
+  --green-50: #F0FDF4;
 
   /* Neutrals */
   --black: #111111;
@@ -323,13 +324,19 @@ p.lead {
 /* ===========================
    Testimonials Carousel
    =========================== */
+.testimonials {
+  background: var(--page);
+}
+
 .carousel {
   position: relative;
-  margin-top: 32px;
+  margin-top: 48px;
+  margin-bottom: 32px;
 }
 
 .car-viewport {
   overflow: hidden;
+  padding: 0;
 }
 
 .car-track {
@@ -340,133 +347,193 @@ p.lead {
   padding: 8px 0;
   list-style: none;
   margin: 0;
+  padding-left: 0;
 }
 
 .card {
-  min-width: 560px;
+  min-width: calc((100% - 48px) / 3);
+  max-width: calc((100% - 48px) / 3);
+  flex-shrink: 0;
   background: var(--card);
-  border: 1px solid var(--green-300);
+  border: 2px solid var(--green-300);
   border-radius: var(--r-md);
-  padding: 28px;
+  padding: 32px;
   box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
 }
 
 .card .stars {
   display: flex;
   gap: 4px;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
 }
 
 .card .stars img {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
 }
 
 .card p {
   margin: 0;
-  line-height: 1.6;
+  line-height: 1.7;
+  font-size: 15px;
+  color: var(--text);
+  flex-grow: 1;
 }
 
 .card .author {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-top: 20px;
+  margin-top: 24px;
+  padding-top: 4px;
 }
 
 .card .avatar {
-  width: 36px;
-  height: 36px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  background: #eee;
+  background: #f0f0f0;
+  object-fit: cover;
 }
 
 .card .name {
   font-weight: 600;
+  font-size: 15px;
   color: var(--black);
+  margin-bottom: 2px;
 }
 
-.car-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: #fff;
-  border: 1px solid var(--border);
+.card .small {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Navigation controls wrapper */
+.carousel-controls {
   display: grid;
-  place-items: center;
-  cursor: pointer;
-  box-shadow: var(--shadow-sm);
-  z-index: 2;
-  transition: all 0.2s ease;
-}
-
-.car-btn:hover {
-  border-color: var(--green-600);
-  box-shadow: var(--shadow-md);
-}
-
-.car-btn img {
-  width: 20px;
-  height: 20px;
-}
-
-.car-prev {
-  left: -8px;
-}
-
-.car-next {
-  right: -8px;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  margin-top: 32px;
+  gap: 20px;
 }
 
 .trustpilot {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-top: 20px;
   font-weight: 600;
+  font-size: 15px;
+  justify-self: start;
 }
 
-.trustpilot img {
-  width: 20px;
-  height: 20px;
+.trustpilot > img {
+  width: 24px;
+  height: 24px;
 }
 
 .tp-stars {
   display: flex;
-  gap: 6px;
+  gap: 4px;
+  margin-left: 4px;
 }
 
 .tp-stars img {
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
+}
+
+.trustpilot-rating {
+  margin-top: 8px;
+}
+
+.trustpilot-rating .small {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  justify-self: end;
 }
 
 .dots {
   display: flex;
-  gap: 8px;
+  gap: 10px;
   justify-content: center;
-  margin-top: 16px;
+  justify-self: center;
 }
 
 .dots button {
-  width: 36px;
+  width: 40px;
   height: 6px;
   border-radius: 6px;
   background: #DDD;
   border: 0;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: all 0.25s ease;
 }
 
 .dots button:hover {
-  background: #CCC;
+  background: #BBB;
 }
 
 .dots button.active {
   background: var(--green-600);
+  width: 48px;
+}
+
+.car-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.car-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--r-xs);
+  background: #fff;
+  border: 1.5px solid var(--green-600);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  transition: all 0.2s ease;
+}
+
+.car-btn:hover {
+  background: var(--green-600);
+  border-color: var(--green-700);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.car-btn:hover img {
+  filter: brightness(0) invert(1);
+}
+
+.car-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  border-color: #DDD;
+  background: #F9F9F9;
+}
+
+.car-btn:disabled:hover {
+  background: #F9F9F9;
+  border-color: #DDD;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.car-btn:disabled:hover img {
+  filter: none;
+}
+
+.car-btn img {
+  width: 24px;
+  height: 24px;
 }
 
 /* ===========================

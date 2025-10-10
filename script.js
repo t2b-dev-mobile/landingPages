@@ -12,16 +12,21 @@
 
   let index = 0;
   let cards = Array.from(track.children);
+  const cardsPerView = 3; // Show 3 cards at a time
+  const maxIndex = Math.max(0, cards.length - cardsPerView);
 
-  function cardWidth() {
-    const w = cards[0].getBoundingClientRect().width;
+  function getScrollAmount() {
+    // Calculate based on one card width + gap
+    const cardElement = cards[0];
+    const cardWidth = cardElement.offsetWidth;
     const gap = parseFloat(getComputedStyle(track).gap || 0);
-    return w + gap;
+    return cardWidth + gap;
   }
 
   function updateDots() {
     dotsWrap.innerHTML = '';
-    cards.forEach((_, i) => {
+    const totalDots = maxIndex + 1;
+    for (let i = 0; i <= maxIndex; i++) {
       const b = document.createElement('button');
       if (i === index) b.classList.add('active');
       b.addEventListener('click', () => {
@@ -29,25 +34,45 @@
         move();
       });
       dotsWrap.appendChild(b);
-    });
+    }
   }
 
   function move() {
-    track.style.transform = `translateX(${-index * cardWidth()}px)`;
-    dotsWrap.querySelectorAll('button').forEach((b, i) => b.classList.toggle('active', i === index));
+    const offset = -index * getScrollAmount();
+    track.style.transform = `translateX(${offset}px)`;
+    
+    // Update dots
+    dotsWrap.querySelectorAll('button').forEach((b, i) => {
+      b.classList.toggle('active', i === index);
+    });
+    
+    // Update button states
+    prev.disabled = index === 0;
+    next.disabled = index >= maxIndex;
   }
 
   prev.addEventListener('click', () => {
-    index = Math.max(0, index - 1);
-    move();
+    if (index > 0) {
+      index--;
+      move();
+    }
   });
 
   next.addEventListener('click', () => {
-    index = Math.min(cards.length - 1, index + 1);
-    move();
+    if (index < maxIndex) {
+      index++;
+      move();
+    }
   });
 
-  window.addEventListener('resize', move);
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      move();
+    }, 100);
+  });
+
   updateDots();
   move();
 })();
