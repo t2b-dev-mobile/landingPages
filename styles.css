@@ -4,7 +4,7 @@
 :root {
   /* Brand & UI greens */
   --green-700: #0FA958;
-  --green-600: #12B76A;
+  --green-600: #00A82D;
   --green-500: #1FC97B;
   --green-300: #B8EAC7;
   --green-50: #F0FDF4;
@@ -650,7 +650,7 @@ p.lead {
 }
 
 .brand {
-  max-width: 680px;
+  max-width: 100%;
 }
 
 .brand img {
@@ -660,7 +660,8 @@ p.lead {
 
 .disclaimer {
   max-width: 100%;
-  line-height: 1.6;
+  line-height: 1.65;
+  color: var(--muted);
 }
 
 .cols {
@@ -731,27 +732,41 @@ p.lead {
 }
 
 .foot-bottom {
+  background: var(--green-600);
+  color: white;
+  padding: 24px 0;
+  width: 100%;
+}
+
+.foot-bottom .container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-top: 1px solid var(--border);
-  padding: 16px 0;
+}
+
+.foot-bottom .small {
+  color: white;
 }
 
 .social {
   display: flex;
-  gap: 10px;
+  gap: 16px;
+  align-items: center;
 }
 
 .social img {
-  width: 22px;
-  height: 22px;
+  width: 36px;
+  height: 36px;
   cursor: pointer;
-  transition: opacity 0.2s ease;
+  transition: all 0.2s ease;
+  background: white;
+  border-radius: 6px;
+  padding: 6px;
 }
 
 .social img:hover {
-  opacity: 0.7;
+  opacity: 0.9;
+  transform: translateY(-2px);
 }
 
 /* ===========================
