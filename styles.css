@@ -205,6 +205,111 @@ p.lead {
   height: 26px;
 }
 
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 60;
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background-color: var(--black);
+  border-radius: 3px;
+  transition: all 0.3s ease-in-out;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: translateY(10.5px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-10.5px) rotate(-45deg);
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 72px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(247, 246, 242, 0.98);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 40;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  overflow-y: auto;
+}
+
+.mobile-menu.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  gap: 8px;
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mobile-nav a {
+  padding: 16px;
+  font-size: 18px;
+  font-weight: 500;
+  border-bottom: 1px solid var(--border);
+  transition: all 0.2s ease;
+  border-radius: 8px;
+}
+
+.mobile-nav a:hover,
+.mobile-nav a:active {
+  background-color: var(--green-50);
+  color: var(--green-600);
+  border-color: var(--green-300);
+}
+
+.mobile-nav-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.mobile-nav-buttons .btn {
+  width: 100%;
+  justify-content: center;
+}
+
 /* ===========================
    Hero Section
    =========================== */
@@ -714,14 +819,15 @@ p.lead {
 }
 
 .mailer input {
-  flex: 1;
-  height: 44px;
-  padding: 0 12px;
+  min-width: 200px;
+  height: 48px;
+  padding: 0 16px;
   border: 1px solid var(--border);
   border-radius: var(--r-xs);
   outline: none;
-  font-size: 14px;
+  font-size: 16px;
   transition: border-color 0.2s ease;
+  flex-shrink: 0;
 }
 
 .mailer input:focus {
@@ -995,7 +1101,7 @@ p.lead {
 }
 
 /* Tablet and small screens */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .card {
     min-width: calc(90vw - 32px);
     max-width: calc(90vw - 32px);
@@ -1018,6 +1124,21 @@ p.lead {
   .car-buttons {
     display: none;
   }
+
+  /* Improve email input for tablets */
+  .mailer input {
+    height: 60px;
+    font-size: 16px;
+    padding: 0 16px;
+    flex-shrink: 0;
+  }
+
+  .mailer button {
+    height: 60px;
+    font-size: 16px;
+    padding: 0 16px;
+    flex-shrink: 0;
+  }
 }
 
 @media (max-width: 560px) {
@@ -1033,13 +1154,22 @@ p.lead {
     height: 300px;
   }
 
+  /* Show hamburger menu on mobile */
+  .hamburger {
+    display: flex;
+  }
+
+  .mobile-menu {
+    display: block;
+  }
+
+  /* Hide desktop navigation */
   .nav-links {
     display: none;
   }
 
   .nav-cta {
-    flex: 1;
-    justify-content: flex-end;
+    display: none;
   }
 
   .hero {
@@ -1158,8 +1288,40 @@ p.lead {
     justify-content: center;
   }
 
+  /* Significantly improved email subscription for mobile */
   .mailer {
     flex-direction: column;
+    width: 100%;
+    gap: 16px;
+    margin: 24px 0;
+  }
+  
+  .mailer input {
+    width: 100%;
+    height: 68px; /* Even larger for mobile */
+    font-size: 18px; /* Larger font */
+    padding: 0 20px; /* More padding */
+    border-width: 2px; /* Thicker border */
+    border-radius: 10px; /* Rounded corners */
+    flex-shrink: 0;
+  }
+  
+  .mailer button {
+    width: 100%;
+    height: 68px; /* Even larger for mobile */
+    font-size: 18px; /* Larger font */
+    padding: 0 20px; /* More padding */
+    border-radius: 10px; /* Rounded corners */
+    font-weight: 600; /* Bolder text */
+    flex-shrink: 0;
+  }
+  
+  .col.signup {
+    padding: 20px; /* Add padding around the entire signup box */
+    background-color: var(--card); /* Add background color */
+    border-radius: 12px; /* Rounded corners */
+    margin-top: 20px; /* Space from above element */
+    box-shadow: var(--shadow-sm); /* Subtle shadow */
   }
 
   .brand img {

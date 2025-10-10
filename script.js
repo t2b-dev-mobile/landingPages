@@ -1,4 +1,54 @@
 /* ===========================
+   Mobile Hamburger Menu
+   =========================== */
+(function () {
+  const hamburger = document.querySelector('.hamburger');
+  const mobileMenu = document.querySelector('.mobile-menu');
+  const body = document.body;
+
+  if (!hamburger || !mobileMenu) return;
+
+  hamburger.addEventListener('click', function() {
+    const isActive = hamburger.classList.contains('active');
+    
+    // Toggle active states
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+    
+    // Update ARIA attribute
+    hamburger.setAttribute('aria-expanded', !isActive);
+    
+    // Prevent body scroll when menu is open
+    if (!isActive) {
+      body.style.overflow = 'hidden';
+    } else {
+      body.style.overflow = '';
+    }
+  });
+
+  // Close menu when clicking a link
+  const mobileLinks = mobileMenu.querySelectorAll('a, button');
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
+      body.style.overflow = '';
+    });
+  });
+
+  // Close menu on window resize if it gets too wide
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 560 && mobileMenu.classList.contains('active')) {
+      hamburger.classList.remove('active');
+      mobileMenu.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
+      body.style.overflow = '';
+    }
+  });
+})();
+
+/* ===========================
    Testimonials Carousel
    =========================== */
 (function () {
