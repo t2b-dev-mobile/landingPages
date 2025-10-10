@@ -47,23 +47,72 @@
     });
     
     // Update button states
-    prev.disabled = index === 0;
-    next.disabled = index >= maxIndex;
+    if (prev && next) {
+      prev.disabled = index === 0;
+      next.disabled = index >= maxIndex;
+    }
   }
 
-  prev.addEventListener('click', () => {
-    if (index > 0) {
-      index--;
-      move();
-    }
+  if (prev && next) {
+    prev.addEventListener('click', () => {
+      if (index > 0) {
+        index--;
+        move();
+      }
+    });
+
+    next.addEventListener('click', () => {
+      if (index < maxIndex) {
+        index++;
+        move();
+      }
+    });
+  }
+
+  // Touch/Swipe support for mobile and tablet
+  let touchStartX = 0;
+  let touchEndX = 0;
+  let isDragging = false;
+
+  viewport.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+    isDragging = true;
+  }, { passive: true });
+
+  viewport.addEventListener('touchmove', (e) => {
+    if (!isDragging) return;
+    touchEndX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  viewport.addEventListener('touchend', () => {
+    if (!isDragging) return;
+    isDragging = false;
+    handleSwipe();
   });
 
-  next.addEventListener('click', () => {
-    if (index < maxIndex) {
-      index++;
-      move();
+  function handleSwipe() {
+    const swipeThreshold = 50; // minimum distance for swipe
+    const diff = touchStartX - touchEndX;
+
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0) {
+        // Swipe left - go to next
+        if (index < maxIndex) {
+          index++;
+          move();
+        }
+      } else {
+        // Swipe right - go to previous
+        if (index > 0) {
+          index--;
+          move();
+        }
+      }
     }
-  });
+    
+    touchStartX = 0;
+    touchEndX = 0;
+  }
 
   let resizeTimeout;
   window.addEventListener('resize', () => {

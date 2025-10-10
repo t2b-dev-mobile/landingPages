@@ -57,6 +57,7 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
 }
 
 img {
@@ -274,8 +275,8 @@ p.lead {
 
 .tesla-widget {
   position: absolute;
-  left: 40px;
-  bottom: -30px;
+  left: 60px;
+  bottom: -50px;
   width: 440px;
   max-width: 72%;
   height: auto;
@@ -326,17 +327,26 @@ p.lead {
    =========================== */
 .testimonials {
   background: var(--page);
+  overflow: hidden;
 }
 
 .carousel {
   position: relative;
   margin-top: 48px;
   margin-bottom: 32px;
+  overflow: hidden;
 }
 
 .car-viewport {
   overflow: hidden;
   padding: 0;
+  width: 100%;
+  touch-action: pan-y pinch-zoom;
+  cursor: grab;
+}
+
+.car-viewport:active {
+  cursor: grabbing;
 }
 
 .car-track {
@@ -634,6 +644,8 @@ p.lead {
 .footer {
   background: #fff;
   border-top: 1px solid var(--border);
+  overflow-x: hidden;
+  width: 100%;
 }
 
 .foot-top {
@@ -641,6 +653,8 @@ p.lead {
   padding-bottom: 32px;
   display: grid;
   gap: 32px;
+  width: 100%;
+  max-width: 100%;
 }
 
 .brand {
@@ -663,11 +677,14 @@ p.lead {
   grid-template-columns: 2fr 1fr 1fr 1.3fr;
   gap: 28px;
   margin-top: 28px;
+  width: 100%;
+  max-width: 100%;
 }
 
 .col h4 {
   margin: 0 0 12px;
   font-weight: 700;
+  word-wrap: break-word;
 }
 
 .col a {
@@ -676,6 +693,7 @@ p.lead {
   padding: 6px 0;
   cursor: pointer;
   transition: color 0.2s ease;
+  word-wrap: break-word;
 }
 
 .col a:hover {
@@ -766,6 +784,73 @@ p.lead {
 /* ===========================
    Responsive Design
    =========================== */
+
+/* Medium-large screens (laptops 15-21 inch) */
+@media (max-width: 1600px) {
+  .hero-visual {
+    min-height: 550px;
+    padding: 30px 0 50px 0;
+  }
+
+  .hero-man {
+    max-width: 450px;
+  }
+
+  .pnl-widget {
+    top: 5px;
+    right: -30px;
+    width: 260px;
+  }
+
+  .tesla-widget {
+    left: 20px;
+    bottom: -25px;
+    width: 400px;
+  }
+
+  .hero-candles {
+    left: -40px;
+    bottom: -120px;
+    width: 480px;
+  }
+}
+
+@media (max-width: 1366px) {
+  h1 {
+    font-size: 56px;
+  }
+
+  .hero-grid {
+    gap: 50px;
+  }
+
+  .hero-visual {
+    min-height: 520px;
+  }
+
+  .hero-man {
+    max-width: 420px;
+  }
+
+  .pnl-widget {
+    top: 0px;
+    right: -20px;
+    width: 240px;
+  }
+
+  .tesla-widget {
+    left: 10px;
+    bottom: -20px;
+    width: 360px;
+  }
+
+  .hero-candles {
+    left: -60px;
+    bottom: -100px;
+    width: 450px;
+  }
+}
+
 @media (max-width: 1100px) {
   .hero-grid {
     grid-template-columns: 1fr;
@@ -819,12 +904,27 @@ p.lead {
     font-size: 44px;
   }
 
-  h1 {
-    font-size: 44px;
+  .card {
+    min-width: calc(85vw - 32px);
+    max-width: calc(85vw - 32px);
   }
 
-  .card {
-    min-width: 76vw;
+  .carousel-controls {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .trustpilot {
+    justify-self: center;
+  }
+
+  .dots {
+    order: 2;
+  }
+
+  .nav-controls {
+    order: 3;
+    justify-self: center;
   }
 
   .hero-visual {
@@ -883,6 +983,32 @@ p.lead {
     flex-direction: column;
     gap: 16px;
     text-align: center;
+  }
+}
+
+/* Tablet and small screens */
+@media (max-width: 768px) {
+  .card {
+    min-width: calc(90vw - 32px);
+    max-width: calc(90vw - 32px);
+  }
+
+  .carousel-controls {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .trustpilot {
+    justify-self: center;
+  }
+
+  .nav-controls {
+    justify-self: center;
+  }
+
+  /* Hide carousel arrows on tablet and mobile */
+  .car-buttons {
+    display: none;
   }
 }
 
@@ -945,6 +1071,32 @@ p.lead {
     bottom: -15px;
   }
 
+  /* Fix testimonials carousel for mobile */
+  .card {
+    min-width: calc(100vw - 48px);
+    max-width: calc(100vw - 48px);
+    padding: 24px;
+  }
+
+  .car-track {
+    gap: 16px;
+  }
+
+  .carousel-controls {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .trustpilot {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+
+  .tp-stars {
+    margin-left: 0;
+  }
+
   .car-btn {
     width: 32px;
     height: 32px;
@@ -953,6 +1105,55 @@ p.lead {
   .car-btn img {
     width: 16px;
     height: 16px;
+  }
+
+  .dots button {
+    width: 32px;
+    height: 5px;
+  }
+
+  .dots button.active {
+    width: 40px;
+  }
+
+  /* Fix footer for mobile - prevent horizontal scroll */
+  .cols {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .foot-top {
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+  }
+
+  .foot-bottom {
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+  }
+
+  .foot-bottom .container {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+    padding: 0;
+  }
+
+  .social {
+    justify-content: center;
+  }
+
+  .stores {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .mailer {
+    flex-direction: column;
+  }
+
+  .brand img {
+    max-width: 180px;
   }
 
   section {
