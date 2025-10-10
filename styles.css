@@ -30,8 +30,8 @@
   --r-lg: 20px;
 
   /* Layout */
-  --container: 1200px;
-  --gutter: 24px;
+  --container: 1500px;
+  --gutter: 8px;
   --section-y: 96px;
 }
 
@@ -79,7 +79,7 @@ section {
 }
 
 h1 {
-  font-weight: 800;
+  font-weight: 600;
   font-size: 64px;
   line-height: 1.1;
   letter-spacing: -0.02em;
@@ -143,11 +143,11 @@ p.lead {
 .btn-primary {
   background: var(--green-600);
   color: #fff;
-  box-shadow: var(--shadow-sm);
+  box-shadow: none;
 }
 
 .btn-primary:hover {
-  background: var(--green-500);
+  background: var(--green-700);
 }
 
 .btn-ghost {
@@ -157,6 +157,7 @@ p.lead {
 }
 
 .btn-ghost:hover {
+  color: var(--green-600);
   border-color: var(--green-600);
 }
 
@@ -168,7 +169,7 @@ p.lead {
   top: 0;
   z-index: 50;
   background: var(--page);
-  border-bottom: 1px solid rgba(0, 0, 0, .04);
+  border-bottom: 1px solid transparent;
 }
 
 .nav-inner {
@@ -219,6 +220,10 @@ p.lead {
   gap: 60px;
 }
 
+.hero-copy {
+  position: relative;
+}
+
 .hero-copy h1 {
   margin: 0 0 20px;
 }
@@ -248,11 +253,10 @@ p.lead {
 
 .hero-candles {
   position: absolute;
-  left: -120px;
-  bottom: -80px;
-  width: 700px;
-  max-width: 130%;
-  opacity: .05;
+  left: 0;
+  bottom: -180px;
+  width: 500px;
+  max-width: 100%;
   z-index: 1;
   pointer-events: none;
 }
@@ -732,7 +736,7 @@ p.lead {
 
 @media (max-width: 920px) {
   :root {
-    --gutter: 20px;
+    --gutter: 16px;
   }
 
   h1 {
