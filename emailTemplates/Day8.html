@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Welcome to trader2B</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+      color: #000;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .email-wrapper {
+      width: 100%;
+      background-color: #f0f0f0;
+      padding: 20px 0;
+    }
+    .email-container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #ffffff;
+    }
+    .header {
+      padding: 32px 40px 24px 40px;
+      text-align: center;
+      background-color: #ffffff;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    .logo {
+      max-width: 140px;
+      height: auto;
+      margin-bottom: 12px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .tagline {
+      color: #000;
+      font-size: 18px;
+      margin: 0;
+      font-weight: bold;
+      letter-spacing: 0.3px;
+    }
+    .content {
+      padding: 32px 40px;
+      background-color: #ffffff;
+    }
+    .greeting {
+      font-size: 16px;
+      color: #000;
+      margin: 0 0 20px 0;
+      font-weight: 400;
+      text-align: left;
+    }
+    .body-text {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #000;
+      margin: 0 0 24px 0;
+      text-align: left;
+    }
+    .intro-text {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #000;
+      margin: 0 0 20px 0;
+      text-align: left;
+    }
+    .step-item {
+      background-color: #ffffff;
+      font-size: 14px;
+      color: #000;
+      text-align: left;
+    }
+    .step-number {
+      display: inline-block;
+      background-color: #29b54f;
+      color: #ffffff;
+      width: 22px;
+      height: 22px;
+      border-radius: 3px;
+      text-align: center;
+      line-height: 22px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+    .video-section {
+      background-color: #fafafa;
+      border-radius: 4px;
+      padding: 16px 20px;
+      margin: 24px 0 24px 0;
+      text-align: center;
+    }
+    .video-icon {
+      font-size: 16px;
+      margin-right: 6px;
+    }
+    .video-link {
+      display: inline-block;
+      color: #000;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      margin: 0;
+    }
+    .video-link:hover {
+      text-decoration: underline;
+    }
+    .app-section {
+      background-color: #fafafa;
+      border-radius: 4px;
+      padding: 16px 20px;
+      margin: 0 0 20px 0;
+      text-align: left;
+    }
+    .app-text {
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+    }
+    .cta-button {
+      display: inline-block;
+      background-color: #29b54f;
+      color: #ffffff !important;
+      text-decoration: none;
+      padding: 12px 28px;
+      border-radius: 4px;
+      font-size: 14px;
+      font-weight: 600;
+      margin: 0;
+      text-align: center;
+      transition: background-color 0.2s;
+    }
+    .cta-button:hover {
+      background-color: #248f44;
+    }
+    .cta-center {
+      text-align: center;
+      margin: 24px 0 32px 0;
+    }
+    .callout-text {
+      font-size: 14px;
+      color: #000;
+      margin: 0 0 16px 0;
+      text-align: left;
+      line-height: 1.6;
+    }
+    .support-text {
+      font-size: 13px;
+      color: #000;
+      margin: 0 0 24px 0;
+      text-align: center;
+      line-height: 1.5;
+    }
+    .signature {
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      line-height: 1.5;
+      text-align: left;
+    }
+    .signature p {
+      margin: 0;
+    }
+    .signature-line {
+      font-style: italic;
+    }
+    .footer {
+      padding: 32px 40px;
+      background-color: #f8f8f8;
+      text-align: center;
+      border-top: 1px solid #e0e0e0;
+    }
+    .footer-logo {
+      max-width: 110px;
+      height: auto;
+      margin: 0 auto 20px auto;
+      display: block;
+    }
+    .footer-text {
+      font-size: 12px;
+      color: #000;
+      line-height: 1.5;
+      margin: 0;
+    }
+    .footer-link {
+      color: #000;
+      text-decoration: none;
+    }
+    .footer-link:hover {
+      text-decoration: underline;
+    }
+    .footer-address {
+      font-size: 11px;
+      color: #000;
+      margin: 0 0 20px 0;
+      line-height: 1.5;
+    }
+    .app-buttons {
+      text-align: center;
+      margin: 0;
+    }
+    .app-buttons a {
+      display: inline-block;
+      margin: 0 6px 8px 6px;
+    }
+    .app-buttons img {
+      height: 38px;
+      width: auto;
+    }
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #000;
+    }
+    .comparison-table th,
+    .comparison-table td {
+      border: 1px solid #e0e0e0;
+      padding: 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+    .comparison-table th {
+      background-color: #f8f8f8;
+      font-weight: 600;
+    }
+    
+    .social-media {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .social-media a {
+      display: inline-block;
+      margin: 0 8px;
+    }
+    .social-media i {
+      font-size: 24px;
+      color: #666;
+      transition: color 0.2s;
+    }
+    .social-media a:hover i {
+      color: #29b54f;
+    }
+    
+    /* Responsive styles */
+    @media only screen and (max-width: 600px) {
+      .email-wrapper {
+        padding: 10px 0;
+      }
+      .header {
+        padding: 24px 20px 16px 20px;
+      }
+      .logo {
+        max-width: 120px;
+      }
+      .tagline {
+        font-size: 11px;
+      }
+      .content {
+        padding: 24px 20px;
+      }
+      .greeting {
+        font-size: 15px;
+        margin-bottom: 14px;
+      }
+      .body-text,
+      .intro-text {
+        font-size: 13px;
+      }
+      .step-item {
+        font-size: 13px;
+      }
+      .step-number {
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        font-size: 11px;
+      }
+      .video-section,
+      .app-section {
+        padding: 16px 14px;
+        margin: 18px 0;
+      }
+      .cta-button {
+        padding: 11px 24px;
+        font-size: 13px;
+        display: block;
+        max-width: 280px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .footer {
+        padding: 24px 20px;
+      }
+      .app-buttons img {
+        height: 24px;
+      }
+      .comparison-table th,
+      .comparison-table td {
+        padding: 8px;
+        font-size: 12px;
+      }
+    }
+    
+    @media only screen and (max-width: 480px) {
+      .header {
+        padding: 20px 16px 14px 16px;
+      }
+      .content {
+        padding: 20px 16px;
+      }
+      .greeting {
+        font-size: 14px;
+      }
+      .step-item {
+        font-size: 13px;
+      }
+      .app-buttons a {
+        display: inline-block;
+        margin: 0 4px 8px 4px;
+        max-width: 45%;
+      }
+      .app-buttons img {
+        width: 100%;
+        height: auto;
+      }
+      .comparison-table th,
+      .comparison-table td {
+        padding: 6px;
+        font-size: 11px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" class="email-wrapper">
+    <tr>
+      <td align="center">
+        <div class="email-container">
+          
+          <!-- Header -->
+          <div class="header">
+            <a href="https://trader2b.com/" target="_blank" rel="noopener noreferrer">
+              <img src="https://daily-backup-2025.tor1.digitaloceanspaces.com/daily-backup-2025/cdn/trader2b-logo.svg" alt="trader2B" class="logo">
+            </a>
+            <p class="tagline">Funding stock traders since 2010</p>
+          </div>
+          
+          <!-- Main Content -->
+          <div class="content">
+            <p class="greeting">Hi {{first_name}},</p>
+            
+            <p class="body-text">Toro25K starts from just $66/month—our cheapest entry into ToroChallenge®. You get a clearer challenge with simple, basic rules designed to build consistency and confidence.</p>
+            
+            <p class="callout-text">Why ToroChallenge® (Toro25K)</p>
+            
+            <div class="step-item">
+              ✔ From $66/m → our cheapest way to get started
+            </div>
+            <div class="step-item">
+              ✔ Clear challenge, simple rules → know exactly what to do each step
+            </div>
+            <div class="step-item">
+              ✔ Real trading profits → not a simulation; earn from real trading, where fills and P&L actually count
+            </div>
+            <div class="step-item" style="margin-bottom: 24px;">
+              ✔ Avoid sim pitfalls → sims can be gamed and build bad habits; ToroChallenge® focuses on real market discipline
+            </div>
+            
+            <!-- CTA Button -->
+            <div class="cta-center">
+              <a href="https://webttrader.trader2b.com/pricing" class="cta-button" target="_blank" rel="noopener noreferrer">Start Toro25K from $66/m</a>
+            </div>
+            
+            <p class="body-text">📞 Prefer to talk first? <a href="https://calendly.com/trader2b/phone-consultation" class="footer-link" target="_blank" rel="noopener noreferrer">Book a 10-min call</a></p>
+            
+            <div class="signature">
+              <p class="signature-line">Born a trader,</p>
+              <p>The trader2B Team</p>
+            </div>
+          </div>
+          
+          <!-- Footer -->
+          <div class="footer">
+            
+            <p class="footer-text">
+              <a href="https://trader2b.com/help-center" class="footer-link" target="_blank" rel="noopener noreferrer">Questions?</a> Reach us at <a href="mailto:support@trader2b.com" class="footer-link">support@trader2b.com</a> or call <a href="tel:+13058347733" class="footer-link">+1 (305) 834-7733</a>
+            </p>
+            
+            <p class="footer-address">
+              trader2B, 20801 Biscayne Blvd, Suite 404, Miami, Florida, 33180, U.S.A
+            </p>
+            
+            <!-- App Store Buttons in Footer -->
+            <div class="app-buttons">
+              <a href="https://apps.apple.com/gh/app/trader2b/id1593255607" target="_blank" rel="noopener noreferrer">
+                <img src="https://daily-backup-2025.tor1.digitaloceanspaces.com/daily-backup-2025/cdn/appstore.png" alt="Download on App Store">
+              </a>
+              <a href="https://play.google.com/store/apps/details?id=com.trader2b.trader&hl=en_CA" target="_blank" rel="noopener noreferrer">
+                <img src="https://daily-backup-2025.tor1.digitaloceanspaces.com/daily-backup-2025/cdn/playstore.png" alt="Download on Google Play">
+              </a>
+            </div>
+            
+            <div class="social-media">
+              <a href="https://www.linkedin.com/company/trader2b/?trk=top_nav_home" target="_blank"><i class="fab fa-linkedin"></i></a>
+              <a href="https://www.facebook.com/trader2Bofficial#" target="_blank"><i class="fab fa-facebook"></i></a>
+              <a href="https://www.instagram.com/trader2b/?hl=en" target="_blank"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.youtube.com/channel/UCRGRCcOnbELliYSX3rEwzow" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
+            
+            <p class="footer-text">
+              <a class="footer-link" href="{{{unsubscribe}}}" target="_blank" style="opacity: 0.6;">Manage Preferences</a>
+            </p>
+          </div>
+          
+        </div>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
