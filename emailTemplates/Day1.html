@@ -312,9 +312,25 @@
         height: auto;
       }
     }
+    
+    /* Preheader text */
+    .preheader {
+      display: none;
+      max-height: 0;
+      max-width: 0;
+      opacity: 0;
+      overflow: hidden;
+      mso-hide: all;
+      font-size: 1px;
+      line-height: 1px;
+      color: transparent;
+    }
   </style>
 </head>
 <body>
+  <!-- Preview Text -->
+  <div class="preheader">You’ve got 30 days free to test-drive WebTrader—your stock trading platform—learn fast and refine your edge.</div>
+  
   <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" class="email-wrapper">
     <tr>
       <td align="center">
@@ -332,25 +348,22 @@
           <div class="content">
             <p class="greeting">Hi {{first_name}},</p>
             
-            <p class="body-text">Welcome to trader2B 👋<br>Start with this 60-second WebTrader walkthrough—you'll see how fast entries, risk controls, and dashboards work together.</p>
+            <p class="body-text">Welcome to trader2B 👋<br>You’ve got 30 days free to test-drive WebTrader—your stock trading platform—learn fast and refine your edge.</p>
             
-            <!-- Video Section -->
             <div class="video-section">
-              <a href="https://youtu.be/DbsnKgyjjyM?si=HVuNjmX_HEcDvJXq" class="video-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube video-icon"></i> Watch the video</a>
+              <a href="https://youtu.be/DbsnKgyjjyM?si=HVuNjmX_HEcDvJXq" class="video-link" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube video-icon"></i> Watch the video (60s)</a>
             </div>
             
-            <p class="intro-text">Then get your first quick win:</p>
-            
-            <p class="callout-text">3 steps (2 minutes)</p>
+            <p class="intro-text">Your first quick win (≈2 minutes):</p>
             
             <div class="step-item">
-              <span class="step-number">1</span> Log in to WebTrader
+              ✔ Log in to WebTrader
             </div>
             <div class="step-item">
-              <span class="step-number">2</span> Open Practice Mode
+              ✔ Open Trading Tab
             </div>
             <div class="step-item" style="margin-bottom: 24px;">
-              <span class="step-number">3</span> Place a small market or limit order
+              ✔ Place a small market or limit order
             </div>
             
             <!-- CTA Button -->
@@ -372,7 +385,7 @@
             </p>
             
             <p class="footer-address">
-              trader2B, 20801 Biscayne Blvd, Suite 404, Miami, Florida, 33180, U.S.A
+              trader2B®, 20801 Biscayne Blvd, Suite 404, Miami, Florida, 33180, U.S.A
             </p>
             
             <!-- App Store Buttons in Footer -->

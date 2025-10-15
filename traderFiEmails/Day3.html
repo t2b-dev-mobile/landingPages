@@ -147,6 +147,64 @@
       text-align: center;
       margin: 24px 0 32px 0;
     }
+    .invite-section {
+      border-radius: 4px;
+      padding: 24px 20px;
+      margin: 24px 0;
+      text-align: center;
+    }
+    .invite-title {
+      font-size: 16px;
+      color: #000;
+      font-weight: 600;
+      margin: 0 0 20px 0;
+      text-align: center;
+    }
+    .share-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      margin: 16px 0;
+    }
+    .share-icon-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      background-color: #ffffff;
+      border-radius: 50%;
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .share-icon-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+    .share-icon-link i {
+      font-size: 22px;
+    }
+    .qr-code-section {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid #e0e0e0;
+    }
+    .qr-code-image {
+      display: block;
+      margin: 0 auto 12px auto;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      max-width: 120px;
+      height: auto;
+    }
+    .qr-code-text {
+      font-size: 12px;
+      color: #666;
+      margin: 0;
+      text-align: center;
+    }
     .callout-text {
       font-size: 14px;
       color: #000;
@@ -282,6 +340,32 @@
         margin-left: auto;
         margin-right: auto;
       }
+      .invite-section {
+        padding: 20px 14px;
+        margin: 18px 0;
+      }
+      .invite-title {
+        font-size: 15px;
+        margin-bottom: 16px;
+      }
+      .share-row {
+        gap: 12px;
+        margin: 12px 0;
+      }
+      .share-icon-link {
+        width: 38px;
+        height: 38px;
+      }
+      .share-icon-link i {
+        font-size: 18px;
+      }
+      .qr-code-section {
+        margin-top: 18px;
+        padding-top: 16px;
+      }
+      .qr-code-image {
+        max-width: 100px;
+      }
       .footer {
         padding: 24px 20px;
       }
@@ -302,6 +386,19 @@
       }
       .step-item {
         font-size: 13px;
+      }
+      .share-row {
+        gap: 8px;
+      }
+      .share-icon-link {
+        width: 34px;
+        height: 34px;
+      }
+      .share-icon-link i {
+        font-size: 16px;
+      }
+      .qr-code-image {
+        max-width: 80px;
       }
       .app-buttons a {
         display: inline-block;
@@ -366,13 +463,57 @@
               Live leaderboards track every round
             </div>
             
-            <!-- CTA Button -->
             <div class="cta-center">
-              <a href="#" class="cta-button" target="_blank" rel="noopener noreferrer">Share your invite</a>
+              <a href="https://play.traderfi.game?action=create-game" class="cta-button" target="_blank" rel="noopener noreferrer">Create a tournament</a>
             </div>
             
-            <div class="cta-center">
-              <a href="#" class="cta-button" target="_blank" rel="noopener noreferrer">Create or join a tournament</a>
+            <!-- Invite Friends Section -->
+            <div class="invite-section">
+              <p class="invite-title">Invite your friends</p>
+              
+              <!-- First row of share icons -->
+              <div class="share-row">
+                <a href="https://api.whatsapp.com/send?text=Join%20me%20for%20a%20trading%20competition%20on%20TraderFi!%20https://play.traderfi.game" target="_blank" class="share-icon-link" title="Share on WhatsApp">
+                  <i class="fab fa-whatsapp" style="color: #25D366;"></i>
+                </a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://play.traderfi.game" target="_blank" class="share-icon-link" title="Share on Facebook">
+                  <i class="fab fa-facebook-f" style="color: #1877F2;"></i>
+                </a>
+                <a href="https://twitter.com/intent/tweet?text=Join%20me%20for%20a%20trading%20competition%20on%20TraderFi!&url=https://play.traderfi.game" target="_blank" class="share-icon-link" title="Share on Twitter/X">
+                  <i class="fab fa-twitter" style="color: #1DA1F2;"></i>
+                </a>
+                <a href="https://www.reddit.com/submit?url=https://play.traderfi.game&title=Check%20out%20this%20TraderFi%20tournament!" target="_blank" class="share-icon-link" title="Share on Reddit">
+                  <i class="fab fa-reddit-alien" style="color: #FF4500;"></i>
+                </a>
+                <a href="https://t.me/share/url?url=https://play.traderfi.game&text=Join%20me%20for%20a%20trading%20competition%20on%20TraderFi!" target="_blank" class="share-icon-link" title="Share on Telegram">
+                  <i class="fab fa-telegram" style="color: #0088cc;"></i>
+                </a>
+              </div>
+              
+              <!-- Second row of share icons -->
+              <div class="share-row">
+                <a href="javascript:void(0)" onclick="navigator.clipboard.writeText('https://play.traderfi.game')" class="share-icon-link" title="Copy link to clipboard">
+                  <i class="fas fa-copy" style="color: #6c757d;"></i>
+                </a>
+                <a href="mailto:?subject=Check%20out%20this%20TraderFi%20tournament!&body=Join%20me%20for%20a%20trading%20competition%20on%20TraderFi!%20https://play.traderfi.game" target="_blank" class="share-icon-link" title="Share via Email">
+                  <i class="fas fa-at" style="color: #6c757d;"></i>
+                </a>
+                <a href="sms:?body=Join%20me%20for%20a%20trading%20competition%20on%20TraderFi!%20https://play.traderfi.game" target="_blank" class="share-icon-link" title="Share via SMS">
+                  <i class="fas fa-sms" style="color: #00C851;"></i>
+                </a>
+                <a href="https://www.snapchat.com/scan?attachmentUrl=https://play.traderfi.game" target="_blank" class="share-icon-link" title="Share on Snapchat">
+                  <i class="fab fa-snapchat-ghost" style="color: #FFFC00;"></i>
+                </a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&su=Check%20out%20this%20TraderFi%20tournament!&body=Join%20me%20for%20a%20trading%20competition%20on%20TraderFi!%20https://play.traderfi.game" target="_blank" class="share-icon-link" title="Share via Gmail">
+                  <i class="fas fa-envelope" style="color: #EA4335;"></i>
+                </a>
+              </div>
+              
+              <!-- QR Code -->
+              <div class="qr-code-section">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://play.traderfi.game" alt="QR Code for sharing" class="qr-code-image">
+                <p class="qr-code-text">Scan to share the link</p>
+              </div>
             </div>
             
             <p class="body-text">Pro tip: set a start/end date and a prize—bragging rights count. 😉</p>
